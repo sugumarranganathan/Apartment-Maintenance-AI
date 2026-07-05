@@ -8,7 +8,7 @@ An AI-powered apartment maintenance assistant that uses a Large Language Model (
 
 # Problem Statement
 
-Apartment communities receive numerous maintenance complaints every day, such as electrical failures, plumbing leaks, security concerns, housekeeping requests, and elevator issues.
+Apartment communities receive numerous maintenance complaints every day, such as electrical failures, plumbing leaks, security concerns, housekeeping requests, elevator issues.
 
 Traditionally, these complaints are reviewed manually by maintenance staff, which can lead to:
 
@@ -58,7 +58,7 @@ This reduces manual effort and improves maintenance response efficiency.
 
 # 🔄 Project Workflow
 
-```
+```text
 Resident
       │
       ▼
@@ -97,7 +97,7 @@ Display Result to Resident
 
 # 🧠 AI Workflow
 
-```
+```text
 Complaint
 
 ↓
@@ -133,7 +133,7 @@ Maintenance Ticket
 
 # 📂 Project Structure
 
-```
+```text
 Apartment-Maintenance-AI/
 │
 ├── app.py
@@ -147,10 +147,13 @@ Apartment-Maintenance-AI/
 └── static/
     ├── style.css
     └── script.js
+```
+
+---
 
 # 📸 Example Complaint
 
-```
+```text
 The kitchen sink is leaking and water is flooding the floor.
 ```
 
@@ -178,40 +181,8 @@ The kitchen sink is leaking and water is flooding the floor.
 - AI-driven maintenance management
 - Scalable for large apartment communities
 
+---
 
 # 👨‍💻 Developer
 
-**R. Sugumar, M.B.A.,**
-
-
-
----
-
-# 🤖 AI Response
-
-| Field | Output |
-|-------|--------|
-| Category | Plumbing |
-| Priority | High |
-| Technician | Plumber |
-| Estimated Time | 2 Hours |
-| Summary | Kitchen sink water leakage |
-
----
-
-# 📈 Advantages
-
-- Faster complaint handling
-- Reduced manual work
-- Consistent maintenance ticket generation
-- Improved technician allocation
-- Better resident satisfaction
-- AI-driven maintenance management
-- Scalable for large apartment communities
-
-
-# 👨💻 Developer
-
-**R. Sugumar, M.B.A.,**
-
-
+**R. Sugumar, M.B.A.**
