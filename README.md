@@ -183,3 +183,35 @@ The kitchen sink is leaking and water is flooding the floor.
 
 **R. Sugumar, M.B.A.,**
 
+
+
+---
+
+# 🤖 AI Response
+
+| Field | Output |
+|-------|--------|
+| Category | Plumbing |
+| Priority | High |
+| Technician | Plumber |
+| Estimated Time | 2 Hours |
+| Summary | Kitchen sink water leakage |
+
+---
+
+# 📈 Advantages
+
+- Faster complaint handling
+- Reduced manual work
+- Consistent maintenance ticket generation
+- Improved technician allocation
+- Better resident satisfaction
+- AI-driven maintenance management
+- Scalable for large apartment communities
+
+
+# 👨💻 Developer
+
+**R. Sugumar, M.B.A.,**
+
+
