@@ -1,23 +1,30 @@
-// ===============================
+// =========================================
 // Apartment Maintenance AI
 // script.js
-// ===============================
+// =========================================
+
+const complaintInput = document.getElementById("complaint");
+const submitBtn = document.getElementById("submitBtn");
+const loading = document.getElementById("loading");
+const result = document.getElementById("result");
+
+// -----------------------------------------
+// Generate Maintenance Ticket
+// -----------------------------------------
 
 async function submitComplaint() {
 
-    const complaint = document.getElementById("complaint").value.trim();
+    const complaint = complaintInput.value.trim();
 
-    if (complaint === "") {
+    if (!complaint) {
         alert("Please enter your maintenance complaint.");
+        complaintInput.focus();
         return;
     }
 
-    const button = document.querySelector("button");
-    const loading = document.getElementById("loading");
-    const result = document.getElementById("result");
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Analyzing...";
 
-    button.disabled = true;
-    button.innerHTML = "Analyzing...";
     loading.style.display = "block";
     result.style.display = "none";
 
@@ -41,21 +48,31 @@ async function submitComplaint() {
 
         loading.style.display = "none";
 
-        button.disabled = false;
-        button.innerHTML = "Generate Maintenance Ticket";
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Generate Maintenance Ticket";
 
         if (!response.ok || data.error) {
 
             alert(data.error || "Something went wrong.");
+
             return;
 
         }
 
-        document.getElementById("category").textContent = data.category || "-";
-        document.getElementById("priority").textContent = data.priority || "-";
-        document.getElementById("technician").textContent = data.technician || "-";
-        document.getElementById("time").textContent = data.estimated_time || "-";
-        document.getElementById("summary").textContent = data.summary || "-";
+        document.getElementById("category").textContent =
+            data.category || "-";
+
+        document.getElementById("priority").textContent =
+            data.priority || "-";
+
+        document.getElementById("technician").textContent =
+            data.technician || "-";
+
+        document.getElementById("time").textContent =
+            data.estimated_time || "-";
+
+        document.getElementById("summary").textContent =
+            data.summary || "-";
 
         result.style.display = "block";
 
@@ -69,8 +86,8 @@ async function submitComplaint() {
 
         loading.style.display = "none";
 
-        button.disabled = false;
-        button.innerHTML = "Generate Maintenance Ticket";
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Generate Maintenance Ticket";
 
         alert("Unable to connect to the server.");
 
@@ -80,13 +97,38 @@ async function submitComplaint() {
 
 }
 
-// Allow Ctrl+Enter to submit
+// -----------------------------------------
+// Clear Form
+// -----------------------------------------
 
-document.addEventListener("DOMContentLoaded", function () {
+function clearForm() {
 
-    const textarea = document.getElementById("complaint");
+    complaintInput.value = "";
 
-    textarea.addEventListener("keydown", function (event) {
+    document.getElementById("category").textContent = "-";
+    document.getElementById("priority").textContent = "-";
+    document.getElementById("technician").textContent = "-";
+    document.getElementById("time").textContent = "-";
+    document.getElementById("summary").textContent = "-";
+
+    result.style.display = "none";
+
+    loading.style.display = "none";
+
+    complaintInput.focus();
+
+}
+
+// -----------------------------------------
+// Keyboard Shortcut
+// Ctrl + Enter
+// -----------------------------------------
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    complaintInput.focus();
+
+    complaintInput.addEventListener("keydown", (event) => {
 
         if (event.ctrlKey && event.key === "Enter") {
 
