@@ -1,5 +1,7 @@
 # 🏢 Apartment Maintenance AI Using LLM
 
+https://colab.research.google.com/drive/1_RjO2YgDBU8NNXZoR04AFVOUtGCiVEX2#scrollTo=DkQBISURad86
+
 An AI-powered Apartment Maintenance Assistant that automatically analyzes residents' maintenance complaints using a Large Language Model (LLM). The system classifies the complaint, assigns a priority, recommends the appropriate technician, estimates repair time, and generates a maintenance ticket summary.
 
 ---
