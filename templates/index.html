@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Apartment Maintenance AI</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🏢 Apartment Maintenance AI</h1>
+
+    <p class="subtitle">
+        Describe your maintenance issue and let AI generate the maintenance ticket.
+    </p>
+
+    <div class="card">
+
+        <textarea
+            id="complaint"
+            placeholder="Example: Water is leaking from the kitchen sink and flooding the floor..."
+        ></textarea>
+
+        <button onclick="submitComplaint()">
+            Generate Maintenance Ticket
+        </button>
+
+    </div>
+
+    <div id="loading" class="loading">
+        ⏳ Analyzing your complaint...
+    </div>
+
+    <div id="result" class="result" style="display:none;">
+
+        <h2>Maintenance Ticket</h2>
+
+        <table>
+
+            <tr>
+                <th>Category</th>
+                <td id="category"></td>
+            </tr>
+
+            <tr>
+                <th>Priority</th>
+                <td id="priority"></td>
+            </tr>
+
+            <tr>
+                <th>Technician</th>
+                <td id="technician"></td>
+            </tr>
+
+            <tr>
+                <th>Estimated Time</th>
+                <td id="time"></td>
+            </tr>
+
+            <tr>
+                <th>Summary</th>
+                <td id="summary"></td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>
+
+<script>
+
+async function submitComplaint(){
+
+    const complaint=document.getElementById("complaint").value.trim();
+
+    if(complaint===""){
+        alert("Please enter a maintenance complaint.");
+        return;
+    }
+
+    document.getElementById("loading").style.display="block";
+    document.getElementById("result").style.display="none";
+
+    try{
+
+        const response=await fetch("/predict",{
+
+            method:"POST",
+
+            headers:{
+                "Content-Type":"application/json"
+            },
+
+            body:JSON.stringify({
+                complaint:complaint
+            })
+
+        });
+
+        const data=await response.json();
+
+        document.getElementById("loading").style.display="none";
+
+        if(data.error){
+
+            alert(data.error);
+            return;
+
+        }
+
+        document.getElementById("category").innerText=data.category;
+        document.getElementById("priority").innerText=data.priority;
+        document.getElementById("technician").innerText=data.technician;
+        document.getElementById("time").innerText=data.estimated_time;
+        document.getElementById("summary").innerText=data.summary;
+
+        document.getElementById("result").style.display="block";
+
+    }
+
+    catch(error){
+
+        document.getElementById("loading").style.display="none";
+
+        alert("Server Error");
+
+        console.log(error);
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
