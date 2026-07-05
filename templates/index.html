@@ -11,82 +11,77 @@
 
 <body>
 
-    <div class="container">
+<div class="container">
 
-        <h1>🏢 Apartment Maintenance AI</h1>
+    <h1>🏢 Apartment Maintenance AI</h1>
 
-        <p class="subtitle">
-            Describe your apartment maintenance issue and let AI generate a maintenance ticket.
-        </p>
+    <p class="subtitle">
+        Describe your apartment maintenance issue and let AI generate a maintenance ticket.
+    </p>
 
-        <div class="card">
+    <div class="card">
 
-            <textarea
-                id="complaint"
-                placeholder="Example: Water is leaking from the kitchen sink and flooding the floor..."
-            ></textarea>
+        <textarea
+            id="complaint"
+            placeholder="Example: Water is leaking from the kitchen sink and flooding the floor..."
+        ></textarea>
 
-           # <button id="submitBtn" onclick="submitComplaint()">
-            #    Generate Maintenance Ticket
-           # </button>
+        <div class="button-group">
 
-            <div class="button-group">
+            <button id="submitBtn" onclick="submitComplaint()">
+                Generate Maintenance Ticket
+            </button>
 
-    <button id="submitBtn" onclick="submitComplaint()">
-        Generate Maintenance Ticket
-    </button>
-
-    <button id="clearBtn" onclick="clearForm()">
-        Clear
-    </button>
-
-
-
-        </div>
-
-        <div id="loading" class="loading">
-            ⏳ Analyzing your complaint...
-        </div>
-
-        <div id="result" class="result" style="display: none;">
-
-            <h2>Maintenance Ticket</h2>
-
-            <table>
-
-                <tr>
-                    <th>Category</th>
-                    <td id="category">-</td>
-                </tr>
-
-                <tr>
-                    <th>Priority</th>
-                    <td id="priority">-</td>
-                </tr>
-
-                <tr>
-                    <th>Technician</th>
-                    <td id="technician">-</td>
-                </tr>
-
-                <tr>
-                    <th>Estimated Time</th>
-                    <td id="time">-</td>
-                </tr>
-
-                <tr>
-                    <th>Summary</th>
-                    <td id="summary">-</td>
-                </tr>
-
-            </table>
+            <button id="clearBtn" onclick="clearForm()">
+                Clear
+            </button>
 
         </div>
 
     </div>
 
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <div id="loading" class="loading">
+        ⏳ Analyzing your complaint...
+    </div>
+
+    <div id="result" class="result">
+
+        <h2>Maintenance Ticket</h2>
+
+        <table>
+
+            <tr>
+                <th>Category</th>
+                <td id="category">-</td>
+            </tr>
+
+            <tr>
+                <th>Priority</th>
+                <td id="priority">-</td>
+            </tr>
+
+            <tr>
+                <th>Technician</th>
+                <td id="technician">-</td>
+            </tr>
+
+            <tr>
+                <th>Estimated Time</th>
+                <td id="time">-</td>
+            </tr>
+
+            <tr>
+                <th>Summary</th>
+                <td id="summary">-</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
 
 </body>
-
 </html>
