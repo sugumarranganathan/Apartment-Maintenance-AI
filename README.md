@@ -2,6 +2,8 @@
 
 https://colab.research.google.com/drive/1_RjO2YgDBU8NNXZoR04AFVOUtGCiVEX2?usp=sharing
 
+https://apartment-maintenance-ai.onrender.com/
+
 An AI-powered apartment maintenance assistant that uses a Large Language Model (LLM) to automatically analyze maintenance complaints, classify issues, assign priorities, recommend the appropriate technician, estimate repair time, and generate a structured maintenance ticket.
 
 ---
